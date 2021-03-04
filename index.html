@@ -1,12 +1,148 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Page Title</title>
-        <meta charset="UTF-8"/>
-    </head>
-    <body>
-        <script>
+
+<head>
+    <title>Page Title</title>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <script>
+        function computerPlay() {
+            let random = Math.floor(Math.random() * 10);
+            switch (random) {
+                case 1:
+                case 2:
+                case 3:
+                    return "rock";
+                    break;
+                case 4:
+                case 5:
+                case 6:
+                    return "paper";
+                    break;
+                case 7:
+                case 8:
+                case 9:
+                case 0:
+                    return "scissors";
+                    break;
+                default:
+                    console.log("bug 1");
+            }
+        }
+
+        function playerSelection() {
+            return prompt("Pick tool", "rock");
+        }
+
+        function playRound(playerSelection, computerPlay) {
+            let player1 = playerSelection();
+            let player2 = player1.toLowerCase();
+            let computer = computerPlay();
+            if (player2 == computer) {
+                winner = "tie";
+                console.log("Tie. Both picked " + player2 + ".");
+                return winner;
+            } else if (player2 == "rock") {
+                if (computer == "paper") {
+                    winner = "computer";
+                    console.log("You lose! Paper beats rock.");
+                    return winner;
+                } else {
+                    winner = "player";
+                    console.log("You win! Rock beats scissors.");
+                    return winner;
+                }
+            } else if (player2 == "paper") {
+                if (computer == "rock") {
+                    winner = "player";
+                    console.log("You win! Paper beats rock.");
+                    return winner;
+                } else {
+                    winner = "computer";
+                    console.log("You lose! Scissors beat paper.");
+                    return winner;
+                }
+            } else if (computer == "rock") {
+                winner = "computer";
+                console.log("You lose! Rock beats scissors.");
+                return winner;
+            } else {
+                winner = "player";
+                console.log("You win! Scissors beats paper.");
+                return winner;
+            }
             
-        </script>
-    </body>
+        }
+
+        function game() {
+            let winner
+            let scorePC = 0
+            let scorePlayer = 0
+            let tie = 0
+
+            winner = playRound(playerSelection, computerPlay);
+            if (winner == "tie") {
+                tie++
+            }
+            else if (winner == "player") {
+                scorePlayer++;
+            }
+            else {
+                scorePC++;
+            }
+            
+            winner = playRound(playerSelection, computerPlay);
+            if (winner == "tie") {}
+            else if (winner == "player") {
+                scorePlayer++;
+            }
+            else {
+                scorePC++;
+            }
+
+            winner = playRound(playerSelection, computerPlay);
+            if (winner == "tie") {}
+            else if (winner == "player") {
+                scorePlayer++;
+            }
+            else {
+                scorePC++;
+            }
+
+            winner = playRound(playerSelection, computerPlay);
+            if (winner == "tie") {}
+            else if (winner == "player") {
+                scorePlayer++;
+            }
+            else {
+                scorePC++;
+            }
+
+            winner = playRound(playerSelection, computerPlay);
+            if (winner == "tie") {}
+            else if (winner == "player") {
+                scorePlayer++;
+            }
+            else {
+                scorePC++;
+            }
+
+            if (scorePlayer == scorePC) {
+                return "It's a " + scorePlayer + ":" + scorePC + "tie:";
+            }
+            else if (scorePlayer > scorePC) {
+                return "You win " + scorePlayer + ":" + scorePC + "!";
+            }
+            else {
+                return "You lose " + scorePlayer + ":" + scorePC + "!";
+            }
+
+        }
+        
+
+    </script>
+</body>
+
 </html>
