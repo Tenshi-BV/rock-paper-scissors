@@ -6,7 +6,7 @@ To demonstrate basic javascript skills
 
 ## How
 
-For browser console. Tested with firefox March 2021
+For browsers . Tested with firefox March 2021
 
 ## What
 
